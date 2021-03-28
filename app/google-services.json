@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "944649487382",
+    "firebase_url": "https://crafty-ring-202310.firebaseio.com",
+    "project_id": "crafty-ring-202310",
+    "storage_bucket": "crafty-ring-202310.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944649487382:android:40964f562ff0e71e",
+        "android_client_info": {
+          "package_name": "com.kjsce.camplus"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944649487382-mk4a0pqp481an51o0le8cr9ll1esjpvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBk4f6RfNVkvG-ral_WVyxqGU8M7cV-ELc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_grey_border_top_tab"
+    android:orientation="vertical"
+    android:layout_margin="8dp"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/profile_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/profile_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/profile_department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/profile_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/profile_contact_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:textSize="16sp" />
+
+</LinearLayout>

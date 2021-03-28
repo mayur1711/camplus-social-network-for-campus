@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Camp+</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="password_star">Password*</string>
+    <string name="username_star">Username*</string>
+    <string name="login">LOGIN</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="no_account_yet_create_one">No account yet? Create one</string>
+    <string name="signup">SIGNUP</string>
+    <string name="create_a_new_account">Create a New Account</string>
+    <string name="name">Name*</string>
+    <string name="somaiya_email_id">Somaiya Email Id</string>
+    <string name="somaiya_email_id_star">Somaiya Email Id*</string>
+    <string name="gender">Gender</string>
+    <string name="contact_no">Contact No.</string>
+    <string name="department">Department</string>
+    <string name="year">Year</string>
+    <string name="interests">Interests</string>
+    <string name="otp_will_be_sent_to_your_somaiya_email_id">OTP will be sent to your Somaiya Email Id</string>
+    <string name="send_otp">Send OTP</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="validate_otp">Validate OTP</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="confirm">Confirm</string>
+    <string name="set_new_password">Set new password</string>
+    <string name="social_network_for_kjsce">Social Network for KJSCE</string>
+    <string name="hey_name_what_is_your_question">Hey Name,\nWhat is your Question?</string>
+    <string name="logout_fragment">Logout</string>
+    <string name="edit_profile_fragment">Edit Profile</string>
+    <string name="type_a_comment">Type a comment</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+    <string name="post">Post</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="tags">Tags</string>
+    <string name="select_tags">Select Tags</string>
+    <string name="search">Search...</string>
+    <string name="logout">LOGOUT</string>
+    <string name="write_a_message">Write a message...</string>
+
+</resources>
