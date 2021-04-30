@@ -31,3 +31,19 @@ Firebase is used for real time messaging and PHP for server side scripting.
 - Android Studio
 - 000WebHost
 - Firebase
+
+<br>
+
+## Solution
+
+| Solution                | Author(s)               |
+| ----------------------- | ----------------------- |
+| com.kjsce.camplus       | Mayur Mule, Aakash Jain |
+
+<br>
+
+## Version history
+
+| Version | Date            | Comments        |
+| ------- | --------------- | --------------- |
+| 1.0     | May 1, 2018     | Initial release |
