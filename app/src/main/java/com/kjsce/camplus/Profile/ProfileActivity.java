@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
-
 import com.kjsce.camplus.R;
 import com.kjsce.camplus.Utils.ViewProfileFragment;
 
@@ -52,12 +51,10 @@ public class ProfileActivity extends AppCompatActivity {
                 FragmentTransaction fragmentTransaction = ProfileActivity.this.getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.profile_frameLayout, viewProfileFragment);
                 fragmentTransaction.commit();
+            } else {
+                Toast.makeText(this, "Something went wrong!", Toast.LENGTH_SHORT).show();
             }
-            else {
-                Toast.makeText(this,"Something went wrong!", Toast.LENGTH_SHORT).show();
-            }
-        }
-        else {
+        } else {
             Log.d(TAG, "init: inflating profile");
 
             ProfileFragment profileFragment = new ProfileFragment();
@@ -94,7 +91,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onBackPressed();
         Log.d(TAG, "onBackPressed: back press profile activity");
 
-        if(frameLayout1.getVisibility() == View.VISIBLE){
+        if (frameLayout1.getVisibility() == View.VISIBLE) {
             showLayout();
         }
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

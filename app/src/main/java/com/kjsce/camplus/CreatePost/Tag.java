@@ -10,8 +10,8 @@ public class Tag {
 
     private static final String TAG = "Tag";
 
-    private int tagId;
-    private String tagName;
+    private final int tagId;
+    private final String tagName;
 
     public Tag(int tagId, String tagName) {
         Log.d(TAG, "Tag: constructor");

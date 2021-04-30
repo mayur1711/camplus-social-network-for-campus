@@ -1,10 +1,10 @@
 package com.kjsce.camplus.Signup;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -12,13 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 import com.kjsce.camplus.Login.LoginActivity;
 import com.kjsce.camplus.R;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -63,7 +61,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
         //initialize ArrayAdapters
         //ArrayAdapter converts array items into view(dropdown list)
-        ArrayAdapter<String> adapterYear= new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapterYear = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, yearArray);
 
         ArrayAdapter<String> adapterDepartment = new ArrayAdapter<String>(this,
@@ -83,7 +81,8 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         });
         signupDepartment.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { signupDepartment.showDropDown();
+            public void onClick(View v) {
+                signupDepartment.showDropDown();
             }
         });
 
@@ -137,7 +136,7 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
 
 
         //If Name is not entered create toast and display on button press
-        if (name.length() == 0){
+        if (name.length() == 0) {
             Toast.makeText(this, "Enter Name", Toast.LENGTH_SHORT).show();
         }
 
@@ -147,12 +146,12 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         //If Contact no. fails minimum 7 digit and exceeds 10 digit count create toast and display on button press
-        else if (contact_no.length() != 0 && (contact_no.length() < 7 || contact_no.length() > 10)){
+        else if (contact_no.length() != 0 && (contact_no.length() < 7 || contact_no.length() > 10)) {
             Toast.makeText(this, "Enter 8 or 10 digit Contact No", Toast.LENGTH_SHORT).show();
         }
 
         //If no password is entered create toast and display on button press
-        else if (password.length() < 6){
+        else if (password.length() < 6) {
             Toast.makeText(this, "Set Password with a strength of minimum 8 characters", Toast.LENGTH_SHORT).show();
         }
 

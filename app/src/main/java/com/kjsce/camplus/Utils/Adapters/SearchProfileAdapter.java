@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.kjsce.camplus.Profile.ProfileActivity;
 import com.kjsce.camplus.R;
 import com.kjsce.camplus.Search.User;
@@ -24,8 +23,8 @@ public class SearchProfileAdapter extends RecyclerView.Adapter<SearchProfileAdap
 
     private static final String TAG = "SearchProfileAdapter";
 
-    private Context context;
-    private List<User> profileList;
+    private final Context context;
+    private final List<User> profileList;
 
     public SearchProfileAdapter(Context context, List<User> profileList) {
         Log.d(TAG, "SearchProfileAdapter: constructor");
@@ -62,6 +61,7 @@ public class SearchProfileAdapter extends RecyclerView.Adapter<SearchProfileAdap
         });
 
     }
+
     @Override
 
     public int getItemCount() {

@@ -21,21 +21,14 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.kjsce.camplus.CreatePost.TagsFragment;
 import com.kjsce.camplus.Home.Post;
 import com.kjsce.camplus.R;
-import com.kjsce.camplus.Utils.BottomNavigationViewHelper;
 import com.kjsce.camplus.Utils.Adapters.PostAdapter;
-
+import com.kjsce.camplus.Utils.BottomNavigationViewHelper;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,8 +45,9 @@ import java.util.Map;
 public class InterestsActivity extends AppCompatActivity {
 
     private static final String TAG = "InterestsActivity";
-    private Context mContext = InterestsActivity.this;
     private static final int ACTIVITY_NUM = 2;
+    private static final String VIEW_INTERESTS_POSTS_URL = "https://ajjainaakash.000webhostapp.com/view_interests_posts.php";
+    private final Context mContext = InterestsActivity.this;
     private FrameLayout frameLayout;
     private RelativeLayout relativeLayout;
     private BottomNavigationViewEx bottomNavigationViewEx;
@@ -64,8 +58,6 @@ public class InterestsActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private String tagIdString = "";
     private List<Integer> tagIds = new ArrayList<Integer>();
-    private static String VIEW_INTERESTS_POSTS_URL = "https://ajjainaakash.000webhostapp.com/view_interests_posts.php";
-
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -117,18 +109,18 @@ public class InterestsActivity extends AppCompatActivity {
 
     public void hideLayout() {
         Log.d(TAG, "hideLayout: executing hideLayout");
-        
+
         frameLayout.setVisibility(View.VISIBLE);
         relativeLayout.setVisibility(View.GONE);
     }
 
     public void showLayout() {
         Log.d(TAG, "showLayout: executing showLayout");
-        
+
         frameLayout.setVisibility(View.GONE);
         relativeLayout.setVisibility(View.VISIBLE);
     }
-    
+
     public void sendTags() {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, VIEW_INTERESTS_POSTS_URL,
 
@@ -141,7 +133,7 @@ public class InterestsActivity extends AppCompatActivity {
                             JSONArray posts = new JSONArray(response.substring(response.indexOf("["),
                                     response.lastIndexOf("]") + 1));
 
-                            for(int i = 0; i < posts.length(); i++) {
+                            for (int i = 0; i < posts.length(); i++) {
 
                                 JSONObject postObject = posts.getJSONObject(i);
 
@@ -230,8 +222,7 @@ public class InterestsActivity extends AppCompatActivity {
         if (frameLayout.getVisibility() == View.VISIBLE && !tagIdString.equals("")) {
             Log.d(TAG, "onBackPressed: if back press");
             showLayout();
-        }
-        else {
+        } else {
             Log.d(TAG, "onBackPressed: else back press");
             finish();
         }

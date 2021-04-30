@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <!--top line-->
     <RelativeLayout
-        android:id="@+id/profile_relativeLayout"
-        android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+            android:id="@+id/profile_relativeLayout"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <include layout="@layout/layout_top_line"/>
 
@@ -17,47 +17,47 @@
 
     <!--middle section-->
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:layout_below="@+id/profile_relativeLayout"
-        android:layout_marginBottom="50dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:layout_below="@+id/profile_relativeLayout"
+            android:layout_marginBottom="50dp">
 
         <RelativeLayout
-            android:id="@+id/profile_relativeLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="40dp">
+                android:id="@+id/profile_relativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
 
             <android.support.design.widget.AppBarLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@drawable/white_grey_border_top_tab">
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/white_grey_border_top_tab">
 
                 <android.support.v7.widget.Toolbar
-                    android:id="@+id/profile_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <RelativeLayout
+                        android:id="@+id/profile_toolbar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                    <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
                         <TextView
-                            android:id="@+id/profile_username"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:textSize="20sp"
-                            android:textColor="@color/black"/>
+                                android:id="@+id/profile_username"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:textSize="20sp"
+                                android:textColor="@color/black"/>
 
                         <ImageView
-                            android:id="@+id/profile_options"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="15dp"
-                            android:src="@drawable/ic_menu"/>
+                                android:id="@+id/profile_options"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="15dp"
+                                android:src="@drawable/ic_menu"/>
 
                     </RelativeLayout>
 
@@ -68,27 +68,27 @@
         </RelativeLayout>
 
         <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/profile_swipeRefreshLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/profile_relativeLayout1">
+                android:id="@+id/profile_swipeRefreshLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_relativeLayout1">
 
             <!--posts list view-->
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/profile_recyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    android:id="@+id/profile_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
             </android.support.v7.widget.RecyclerView>
 
         </android.support.v4.widget.SwipeRefreshLayout>
 
         <ProgressBar
-            android:id="@+id/profile_progressBar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"/>
+                android:id="@+id/profile_progressBar"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
 

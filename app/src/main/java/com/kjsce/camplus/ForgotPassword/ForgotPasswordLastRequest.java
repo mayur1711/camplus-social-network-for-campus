@@ -15,10 +15,10 @@ import java.util.Map;
 public class ForgotPasswordLastRequest extends StringRequest {
 
     //url of forgot_password_changepwd.php on the server
-    private static String FORGOT_PASSWORD_LAST_REQUEST_URL = "https://ajjainaakash.000webhostapp.com/forgot_password_changepwd.php";
+    private static final String FORGOT_PASSWORD_LAST_REQUEST_URL = "https://ajjainaakash.000webhostapp.com/forgot_password_changepwd.php";
 
     //
-    private Map<String,String> params;
+    private final Map<String, String> params;
 
     //constructor of the class
     public ForgotPasswordLastRequest(String password, Response.Listener<String> listener) {

@@ -3,7 +3,6 @@ package com.kjsce.camplus.CreatePost;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;
-
 import com.android.volley.Cache;
 import com.android.volley.Network;
 import com.android.volley.RequestQueue;
@@ -20,11 +19,11 @@ public class CustomVolleyRequest {
 
     private static CustomVolleyRequest customVolleyRequest;
     private static Context context;
+    private final ImageLoader imageLoader;
     private RequestQueue requestQueue;
-    private ImageLoader imageLoader;
 
     private CustomVolleyRequest(Context context) {
-        this.context = context;
+        CustomVolleyRequest.context = context;
         this.requestQueue = getRequestQueue();
 
         imageLoader = new ImageLoader(requestQueue,

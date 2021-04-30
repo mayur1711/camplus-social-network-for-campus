@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -36,26 +35,24 @@ import java.util.Objects;
  */
 
 //To display the posts in RecyclerView we need adapter
-public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final String TAG = "CommentAdapter";
-
+    private static final String SET_LIKE_URL = "https://ajjainaakash.000webhostapp.com/set_like.php";
+    private static final String REMOVE_LIKE_URL = "https://ajjainaakash.000webhostapp.com/remove_like.php";
+    private static final String SET_FLAG_URL = "https://ajjainaakash.000webhostapp.com/set_flag.php";
     //List to store all comments
-    private List<Comment> commentList;
-
+    private final List<Comment> commentList;
     //declaring reference variables
-    private Context context;
-    private Post post;
-    private LoginInfo loginInfo = LoginInfo.getInstance();
-    private static String SET_LIKE_URL = "https://ajjainaakash.000webhostapp.com/set_like.php";
-    private static String REMOVE_LIKE_URL = "https://ajjainaakash.000webhostapp.com/remove_like.php";
-    private static String SET_FLAG_URL = "https://ajjainaakash.000webhostapp.com/set_flag.php";
+    private final Context context;
+    private final Post post;
+    private final LoginInfo loginInfo = LoginInfo.getInstance();
 
     //Constructor of this class
     public CommentAdapter(Context context, List<Comment> commentList, Post post) {
 
-        Log.d(TAG, "CommentAdapter: constructor" );
-  
+        Log.d(TAG, "CommentAdapter: constructor");
+
         this.context = context;
         this.commentList = commentList;
         this.post = post;
@@ -70,7 +67,7 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         if (position == 0)
             return R.layout.layout_comment_top_post;
 
-        //for rest positions, display comments
+            //for rest positions, display comments
         else
             return R.layout.layout_comment;
     }
@@ -87,7 +84,7 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         switch (viewType) {
 
             case R.layout.layout_comment_top_post:
-                inflater =  LayoutInflater.from(parent.getContext());
+                inflater = LayoutInflater.from(parent.getContext());
                 view = inflater.inflate(R.layout.layout_comment_top_post, parent, false);
                 holder = new CommentPostViewHolder(view);
                 break;
@@ -113,7 +110,7 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
 
         Log.d(TAG, "onBindViewHolder: executing onBindViewHolder");
-        
+
         if (holder instanceof CommentPostViewHolder) {
 
             ((CommentPostViewHolder) holder).commentTitle.setText(post.getPostTitle());
@@ -124,10 +121,9 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ((CommentPostViewHolder) holder).commentLikeCount.setText(String.valueOf(post.getPostLikeCount()));
             ((CommentPostViewHolder) holder).commentCommentCount.setText(String.valueOf(post.getPostCommentCount()));
 
-            if (Objects.equals(post.getPostImageUrl(), "null")){
+            if (Objects.equals(post.getPostImageUrl(), "null")) {
                 ((CommentPostViewHolder) holder).commentImage.setVisibility(View.GONE);
-            }
-            else {
+            } else {
                 ((CommentPostViewHolder) holder).commentImage.setVisibility(View.VISIBLE);
                 ImageLoader imageLoader = CustomVolleyRequest.getInstance(context).getImageLoader();
                 imageLoader.get(post.getPostImageUrl(), ImageLoader.getImageListener(((CommentPostViewHolder) holder).commentImage,
@@ -164,12 +160,11 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                         public void onResponse(String response) {
                             Log.d(TAG, "onResponse: ResponseListener");
 
-                            if(response.equals("connection success")) {
+                            if (response.equals("connection success")) {
                                 ((CommentPostViewHolder) holder).commentLikeCount.setText(String.valueOf(1 + post.getPostLikeCount()));
                                 ((CommentPostViewHolder) holder).commentLikeBlue.setVisibility(View.VISIBLE);
                                 ((CommentPostViewHolder) holder).commentLikeGrey.setVisibility(View.GONE);
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(context, "something went wrong", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -201,12 +196,11 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                         public void onResponse(String response) {
                             Log.d(TAG, "onResponse: ResponseListener");
 
-                            if(response.equals("connection success")) {
+                            if (response.equals("connection success")) {
                                 ((CommentPostViewHolder) holder).commentLikeCount.setText(String.valueOf(post.getPostLikeCount()));
                                 ((CommentPostViewHolder) holder).commentLikeBlue.setVisibility(View.GONE);
                                 ((CommentPostViewHolder) holder).commentLikeGrey.setVisibility(View.VISIBLE);
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(context, "something went wrong", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -241,11 +235,10 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                         public void onResponse(String response) {
                             Log.d(TAG, "onResponse: ResponseListener");
 
-                            if(response.equals("connection success")) {
+                            if (response.equals("connection success")) {
                                 ((CommentPostViewHolder) holder).commentFlagRed.setVisibility(View.VISIBLE);
                                 ((CommentPostViewHolder) holder).commentFlagGrey.setVisibility(View.GONE);
-                            }
-                            else {
+                            } else {
                                 Toast.makeText(context, "something went wrong", Toast.LENGTH_SHORT).show();
                             }
                         }
@@ -267,13 +260,12 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 }
             });
 
-        }
-        else if (holder instanceof CommentViewHolder){
+        } else if (holder instanceof CommentViewHolder) {
 
             final Comment comment = commentList.get(position);
 
-            ((CommentViewHolder)holder).commentName.setText(comment.getName());
-            ((CommentViewHolder)holder).commentData.setText(comment.getCommentData());
+            ((CommentViewHolder) holder).commentName.setText(comment.getName());
+            ((CommentViewHolder) holder).commentData.setText(comment.getCommentData());
         }
     }
 
@@ -312,7 +304,7 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
     }
 
-    class CommentViewHolder extends RecyclerView.ViewHolder{
+    class CommentViewHolder extends RecyclerView.ViewHolder {
 
         private static final String TAG = "CommentViewHolder";
 
@@ -334,10 +326,10 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         private static final String TAG = "SetLikeRequest";
 
-        private Map<String, String> params;
+        private final Map<String, String> params;
 
         public SetLikeRequest(int postId, Response.Listener<String> listener,
-                                       Response.ErrorListener errorListener) {
+                              Response.ErrorListener errorListener) {
             super(Method.POST, SET_LIKE_URL, listener, errorListener);
             Log.d(TAG, "SetLikeRequest: constructor");
 
@@ -354,10 +346,10 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         private static final String TAG = "RemoveLikeRequest";
 
-        private Map<String, String> params;
+        private final Map<String, String> params;
 
         public RemoveLikeRequest(int postId, Response.Listener<String> listener,
-                        Response.ErrorListener errorListener) {
+                                 Response.ErrorListener errorListener) {
             super(Method.POST, REMOVE_LIKE_URL, listener, errorListener);
             Log.d(TAG, "RemoveLikeRequest: constructor");
 
@@ -374,7 +366,7 @@ public class CommentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
         private static final String TAG = "SetFlagRequest";
 
-        private Map<String, String> params;
+        private final Map<String, String> params;
 
         public SetFlagRequest(int postId, Response.Listener<String> listener,
                               Response.ErrorListener errorListener) {

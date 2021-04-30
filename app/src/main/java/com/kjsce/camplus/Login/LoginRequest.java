@@ -1,7 +1,6 @@
 package com.kjsce.camplus.Login;
 
 import android.util.Log;
-
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 
@@ -18,10 +17,10 @@ public class LoginRequest extends StringRequest {
     private static final String TAG = "LoginRequest";
 
     //url of login.php on the server
-    private static String LOGIN_REQUEST_URL = "https://ajjainaakash.000webhostapp.com/login.php";
+    private static final String LOGIN_REQUEST_URL = "https://ajjainaakash.000webhostapp.com/login.php";
 
     //
-    private Map<String, String> params;
+    private final Map<String, String> params;
 
     //constructor of the class
     public LoginRequest(String username, String password, Response.Listener<String> listener) {

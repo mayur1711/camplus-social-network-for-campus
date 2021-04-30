@@ -12,16 +12,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -33,7 +28,6 @@ import com.kjsce.camplus.Messaging.MessagingActivity;
 import com.kjsce.camplus.Profile.ProfileActivity;
 import com.kjsce.camplus.R;
 import com.kjsce.camplus.Utils.Adapters.ProfileAdapter;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -56,6 +50,8 @@ public class ViewProfileFragment extends Fragment implements View.OnScrollChange
     private static final String TAG = "ViewProfileFragment";
 
     private static final int ACTIVITY_NUM = 3;
+    private static final String VIEW_PROFILE_INFO_URL = "https://ajjainaakash.000webhostapp.com/view_profile_info.php";
+    private static final String VIEW_PROFILE_POSTS_URL = "https://ajjainaakash.000webhostapp.com/view_profile_posts.php";
     private ProgressBar progressBar;
     private BottomNavigationViewEx bottomNavigationViewEx;
     private Toolbar toolbar;
@@ -73,8 +69,6 @@ public class ViewProfileFragment extends Fragment implements View.OnScrollChange
     private SwipeRefreshLayout swipeRefreshLayout;
     private int requestCount = 1;
     private int countOnScrollChange = 1;
-    private static String VIEW_PROFILE_INFO_URL = "https://ajjainaakash.000webhostapp.com/view_profile_info.php";
-    private static String VIEW_PROFILE_POSTS_URL = "https://ajjainaakash.000webhostapp.com/view_profile_posts.php";
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Nullable
@@ -176,7 +170,7 @@ public class ViewProfileFragment extends Fragment implements View.OnScrollChange
                 try {
 
                     JSONObject jsonResponse = new JSONObject(response.substring(response.indexOf("{"),
-                            response.lastIndexOf("}")+1));
+                            response.lastIndexOf("}") + 1));
 
                     boolean success = jsonResponse.getBoolean("success");
 
@@ -201,9 +195,7 @@ public class ViewProfileFragment extends Fragment implements View.OnScrollChange
                         profileUsername.setText(profileInfo.getUsername());
 
                         profileAdapter.notifyDataSetChanged();
-                    }
-
-                    else {
+                    } else {
                         toast.setText("Something went wrong!");
                         toast.show();
                     }
@@ -241,7 +233,7 @@ public class ViewProfileFragment extends Fragment implements View.OnScrollChange
                         JSONArray profilePosts = new JSONArray(response.substring(response.indexOf("["),
                                 response.lastIndexOf("]") + 1));
 
-                        for(int i = 0; i < profilePosts.length(); i++) {
+                        for (int i = 0; i < profilePosts.length(); i++) {
 
                             JSONObject profileObject = profilePosts.getJSONObject(i);
 
@@ -267,9 +259,7 @@ public class ViewProfileFragment extends Fragment implements View.OnScrollChange
                     }
 
                     profileAdapter.notifyDataSetChanged();
-                }
-
-                else {
+                } else {
                     if (countOnScrollChange != 2) {
                         toast.setText("No more Posts");
                         toast.show();
@@ -316,10 +306,8 @@ public class ViewProfileFragment extends Fragment implements View.OnScrollChange
         if (recyclerView.getAdapter().getItemCount() != 0) {
             int lastVisibleItemPosition = ((LinearLayoutManager)
                     recyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
-            if (lastVisibleItemPosition != RecyclerView.NO_POSITION &&
-                    lastVisibleItemPosition == recyclerView.getAdapter().getItemCount() - 1) {
-                return true;
-            }
+            return lastVisibleItemPosition != RecyclerView.NO_POSITION &&
+                    lastVisibleItemPosition == recyclerView.getAdapter().getItemCount() - 1;
         }
         return false;
     }
@@ -340,7 +328,7 @@ public class ViewProfileFragment extends Fragment implements View.OnScrollChange
     private void setupToolbar() {
         Log.d(TAG, "setupToolbar: executing setupToolbar");
 
-        ((ProfileActivity)getActivity()).setSupportActionBar(toolbar);
+        ((ProfileActivity) getActivity()).setSupportActionBar(toolbar);
     }
 
     @Override
@@ -363,10 +351,10 @@ public class ViewProfileFragment extends Fragment implements View.OnScrollChange
 
         private static final String TAG = "ProfilePostsRequest";
 
-        private Map<String, String> params;
+        private final Map<String, String> params;
 
         ViewProfilePostsRequest(int userId, int requestCount, Response.Listener<String> listener,
-                            Response.ErrorListener errorListener) {
+                                Response.ErrorListener errorListener) {
             super(Method.POST, VIEW_PROFILE_POSTS_URL, listener, errorListener);
             Log.d(TAG, "ProfilePostsRequest: constructor");
 
@@ -384,7 +372,7 @@ public class ViewProfileFragment extends Fragment implements View.OnScrollChange
 
         private static final String TAG = "ProfileInfoRequest";
 
-        private Map<String, String>  params;
+        private final Map<String, String> params;
 
         ViewProfileInfoRequest(int userId, Response.Listener<String> listener, Response.ErrorListener errorListener) {
             super(Method.POST, VIEW_PROFILE_INFO_URL, listener, errorListener);

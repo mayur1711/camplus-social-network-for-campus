@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.kjsce.camplus.CreatePost.CustomVolleyRequest;
@@ -31,8 +30,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private static final String TAG = "ProfileAdapter";
 
-    private Context context;
-    private List<Post> postList;
+    private final Context context;
+    private final List<Post> postList;
     private ImageLoader imageLoader;
 
     public ProfileAdapter(Context context, List<Post> postList) {
@@ -53,7 +52,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         if (position == 0)
             return R.layout.layout_profile_top_userinfo;
 
-        //for rest positions, display posts
+            //for rest positions, display posts
         else
             return R.layout.layout_post;
     }
@@ -88,7 +87,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 break;
         }
 
-        return holder;    }
+        return holder;
+    }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
@@ -105,8 +105,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ((ProfileInfoViewHolder) holder).profileDepartment.setText(profileInfo.getDepartment());
             ((ProfileInfoViewHolder) holder).profileContactNo.setText(profileInfo.getContactNo());
 
-        }
-        else if (holder instanceof ProfilePostsViewHolder) {
+        } else if (holder instanceof ProfilePostsViewHolder) {
 
             final Post post = postList.get(position);
 
@@ -118,10 +117,9 @@ public class ProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ((ProfilePostsViewHolder) holder).profilePostLikeCount.setText(String.valueOf(post.getPostLikeCount()));
             ((ProfilePostsViewHolder) holder).profilePostCommentCount.setText(String.valueOf(post.getPostCommentCount()));
 
-            if (Objects.equals(post.getPostImageUrl(), "null")){
+            if (Objects.equals(post.getPostImageUrl(), "null")) {
                 ((ProfilePostsViewHolder) holder).profilePostImage.setVisibility(View.GONE);
-            }
-            else {
+            } else {
                 imageLoader = CustomVolleyRequest.getInstance(context).getImageLoader();
                 imageLoader.get(post.getPostImageUrl(), ImageLoader.getImageListener(((ProfilePostsViewHolder) holder).profilePostImage,
                         1, android.R.drawable.ic_dialog_alert));
@@ -143,7 +141,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                     commentsFragment.setArguments(bundle);
 
                     //navigating to comments fragment
-                    FragmentTransaction fragmentTransaction = ((ProfileActivity)context)
+                    FragmentTransaction fragmentTransaction = ((ProfileActivity) context)
                             .getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.replace(R.id.profile_frameLayout1, commentsFragment);
                     fragmentTransaction.addToBackStack("CommentsFragment");

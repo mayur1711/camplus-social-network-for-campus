@@ -4,33 +4,27 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.widget.Toast;
-
 import com.kjsce.camplus.Utils.Global;
 
-import java.util.Properties;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.util.Properties;
 
 /**
  * Created by Priyanshu Diwan on 30-01-2018.
  */
 
 //Class is extending AsyncTask because this class is going to perform a networking operation
-public class ForgotPasswordSendMail extends AsyncTask<Void,Void,Void> {
+public class ForgotPasswordSendMail extends AsyncTask<Void, Void, Void> {
 
     //declaring variables
-    private Context context;
-    private String email;
-    private String message;
-    private String subject;
-    private String adminEMAIL;
-    private String adminPASSWORD;
+    private final Context context;
+    private final String email;
+    private final String message;
+    private final String subject;
+    private final String adminEMAIL;
+    private final String adminPASSWORD;
 
     //ProgressDialog to show while sending email
     private ProgressDialog progressDialog;
@@ -60,8 +54,8 @@ public class ForgotPasswordSendMail extends AsyncTask<Void,Void,Void> {
         super.onPreExecute();
 
         //showing progress dialog while sending email
-        progressDialog = ProgressDialog.show(context,"Sending mail","Please wait...",
-                false,false);
+        progressDialog = ProgressDialog.show(context, "Sending mail", "Please wait...",
+                false, false);
     }
 
     @Override
@@ -72,7 +66,7 @@ public class ForgotPasswordSendMail extends AsyncTask<Void,Void,Void> {
         progressDialog.dismiss();
 
         //showing a success message
-        Toast.makeText(context,"OTP Sent",Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "OTP Sent", Toast.LENGTH_SHORT).show();
     }
 
     @Override

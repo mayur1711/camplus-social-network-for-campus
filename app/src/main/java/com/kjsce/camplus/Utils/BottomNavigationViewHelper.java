@@ -1,14 +1,12 @@
 package com.kjsce.camplus.Utils;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
 import android.view.MenuItem;
-
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.kjsce.camplus.Home.HomeActivity;
 import com.kjsce.camplus.Interests.InterestsActivity;

@@ -1,6 +1,5 @@
 package com.kjsce.camplus.Utils.Adapters;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -42,49 +41,49 @@ public class SectionsStatePagerAdapter extends FragmentStatePagerAdapter {
 
     public void addFragment(Fragment fragment, String fragmentName) {
         mFragmentList.add(fragment);
-        mFragments.put(fragment, mFragmentList.size()-1);
-        mFragmentNumbers.put(fragmentName, mFragmentList.size()-1);
-        mFragmentNames.put(mFragmentList.size()-1, fragmentName);
+        mFragments.put(fragment, mFragmentList.size() - 1);
+        mFragmentNumbers.put(fragmentName, mFragmentList.size() - 1);
+        mFragmentNames.put(mFragmentList.size() - 1, fragmentName);
     }
 
-    /**returns the fragment with the name @param
+    /**
+     * returns the fragment with the name @param
      *
      * @param fragmentName
      * @return
      */
     public Integer getFragmentNumber(String fragmentName) {
-        if(mFragmentNumbers.containsKey(fragmentName)) {
+        if (mFragmentNumbers.containsKey(fragmentName)) {
             return mFragmentNumbers.get(fragmentName);
-        }
-        else {
+        } else {
             return null;
         }
     }
 
-    /**returns the fragment with the name @param
+    /**
+     * returns the fragment with the name @param
      *
      * @param fragment
      * @return
      */
     public Integer getFragmentNumber(Fragment fragment) {
-        if(mFragmentNumbers.containsKey(fragment)) {
+        if (mFragmentNumbers.containsKey(fragment)) {
             return mFragmentNumbers.get(fragment);
-        }
-        else {
+        } else {
             return null;
         }
     }
 
-    /**returns the fragmentName with the number @param
+    /**
+     * returns the fragmentName with the number @param
      *
      * @param fragmentNumber
      * @return
      */
     public String getFragmentName(Integer fragmentNumber) {
-        if(mFragmentNames.containsKey(fragmentNumber)) {
+        if (mFragmentNames.containsKey(fragmentNumber)) {
             return mFragmentNames.get(fragmentNumber);
-        }
-        else {
+        } else {
             return null;
         }
     }

@@ -15,10 +15,10 @@ import java.util.Map;
 public class ForgotPasswordOtpRequest extends StringRequest {
 
     //url of forgot_password_otp.php on the server
-    private static String FORGOT_PASSWORD_OTP_REQUEST_URL = "https://ajjainaakash.000webhostapp.com/forgot_password_otp.php";
+    private static final String FORGOT_PASSWORD_OTP_REQUEST_URL = "https://ajjainaakash.000webhostapp.com/forgot_password_otp.php";
 
     //
-    private Map<String,String> params;
+    private final Map<String, String> params;
 
     //constructor of the class
     public ForgotPasswordOtpRequest(int otpEntered, Response.Listener<String> listener) {

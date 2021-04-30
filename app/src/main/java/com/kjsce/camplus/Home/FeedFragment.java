@@ -14,16 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.kjsce.camplus.Utils.Adapters.PostAdapter;
 import com.kjsce.camplus.R;
-
+import com.kjsce.camplus.Utils.Adapters.PostAdapter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,22 +34,19 @@ import java.util.List;
  */
 
 @TargetApi(Build.VERSION_CODES.M)
-public class FeedFragment extends Fragment implements RecyclerView.OnScrollChangeListener, SwipeRefreshLayout.OnRefreshListener{
+public class FeedFragment extends Fragment implements RecyclerView.OnScrollChangeListener, SwipeRefreshLayout.OnRefreshListener {
 
     private static final String TAG = "FeedFragment";
-
+    //url of view_posts.php on the server
+    private static final String VIEW_FEED_POSTS_URL = "https://ajjainaakash.000webhostapp.com/view_feed_posts.php?page=";
     private RecyclerView recyclerView;
     private PostAdapter postAdapter;
     private List<Post> postList;
     private ProgressBar progressBar;
     private RequestQueue requestQueue;
     private SwipeRefreshLayout swipeRefreshLayout;
-
     //requestCount corresponds to the page no. to be accessed from the url
     private int requestCount = 1;
-
-    //url of view_posts.php on the server
-    private static String VIEW_FEED_POSTS_URL = "https://ajjainaakash.000webhostapp.com/view_feed_posts.php?page=";
 
     @Nullable
     @Override
@@ -137,7 +132,7 @@ public class FeedFragment extends Fragment implements RecyclerView.OnScrollChang
                                 response.lastIndexOf("]") + 1));
 
                         //traversing through all the object
-                        for(int i = 0; i < posts.length(); i++) {
+                        for (int i = 0; i < posts.length(); i++) {
 
                             //getting post object from json array
                             JSONObject postObject = posts.getJSONObject(i);
@@ -202,10 +197,8 @@ public class FeedFragment extends Fragment implements RecyclerView.OnScrollChang
         if (recyclerView.getAdapter().getItemCount() != 0) {
             int lastVisibleItemPosition = ((LinearLayoutManager)
                     recyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
-            if (lastVisibleItemPosition != RecyclerView.NO_POSITION &&
-                    lastVisibleItemPosition == recyclerView.getAdapter().getItemCount() - 1) {
-                return true;
-            }
+            return lastVisibleItemPosition != RecyclerView.NO_POSITION &&
+                    lastVisibleItemPosition == recyclerView.getAdapter().getItemCount() - 1;
         }
         return false;
     }

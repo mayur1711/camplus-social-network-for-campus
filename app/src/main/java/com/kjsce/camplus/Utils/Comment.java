@@ -11,8 +11,11 @@ public class Comment {
 
     private static final String TAG = "Comment";
 
-    private int commentId, postId, commentUserId;
-    private String commentName, commentData;
+    private final int commentId;
+    private final int postId;
+    private final int commentUserId;
+    private final String commentName;
+    private final String commentData;
 
     public Comment(int commentId, int postId, int commentUserId, String commentName, String commentData) {
         Log.d(TAG, "Comment: constructor");

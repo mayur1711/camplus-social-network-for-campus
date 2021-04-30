@@ -2,7 +2,6 @@ package com.kjsce.camplus.Search;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -17,12 +16,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
-
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.kjsce.camplus.R;
+import com.kjsce.camplus.Utils.Adapters.SectionsPagerAdapter;
 import com.kjsce.camplus.Utils.BottomNavigationViewHelper;
 import com.kjsce.camplus.Utils.Global;
-import com.kjsce.camplus.Utils.Adapters.SectionsPagerAdapter;
 
 import java.util.Locale;
 
@@ -33,16 +31,15 @@ import java.util.Locale;
 public class SearchActivity extends AppCompatActivity {
 
     private static final String TAG = "SearchActivity";
-
+    private static final int ACTIVITY_NUM = 1;
+    private final Global global = Global.getInstance();
+    private final Context mContext = SearchActivity.this;
     private RelativeLayout relativeLayout1, relativeLayout2, relativeLayout3;
     private BottomNavigationViewEx bottomNavigationViewEx;
     private FrameLayout frameLayout;
     private EditText mSearchParam;
     private SearchPostsFragment searchPostsFragment;
     private SearchProfilesFragment searchProfilesFragment;
-    private Global global = Global.getInstance();
-    private Context mContext = SearchActivity.this;
-    private static final int ACTIVITY_NUM = 1;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +58,7 @@ public class SearchActivity extends AppCompatActivity {
 //        setupViewPager();
     }
 
-    private void initTextListener(){
+    private void initTextListener() {
         Log.d(TAG, "initTextListener: initializing initTextListener");
         mSearchParam = findViewById(R.id.search_keyword);
 
@@ -101,9 +98,9 @@ public class SearchActivity extends AppCompatActivity {
         setupViewPager();
     }
 
-    private void closeKeyboard(){
-        if(getCurrentFocus() !=null){
-            InputMethodManager imm=(InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+    private void closeKeyboard() {
+        if (getCurrentFocus() != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
         }
     }
@@ -170,7 +167,7 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if(frameLayout.getVisibility() == View.VISIBLE){
+        if (frameLayout.getVisibility() == View.VISIBLE) {
             showLayout();
         }
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);

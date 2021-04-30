@@ -9,20 +9,37 @@ import android.util.Log;
  */
 
 //This class is used to store PostList items
-public class User implements Parcelable{
+public class User implements Parcelable {
 
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
     private static final String TAG = "User";
-
     //declaring variables
-    private int userId;
-    private String userName;
+    private final int userId;
+    private final String userName;
 
     //constructor
-    public User (int userId, String userName) {
+    public User(int userId, String userName) {
         Log.d(TAG, "User: constructor");
 
         this.userId = userId;
         this.userName = userName;
+    }
+
+    protected User(Parcel in) {
+
+        userId = in.readInt();
+        userName = in.readString();
+
     }
 
     public int getUserId() {
@@ -32,13 +49,6 @@ public class User implements Parcelable{
 
     public String getUserName() {
         return userName;
-    }
-
-    protected User(Parcel in) {
-
-        userId = in.readInt();
-        userName = in.readString();
-
     }
 
     @Override
@@ -53,16 +63,4 @@ public class User implements Parcelable{
     public int describeContents() {
         return 0;
     }
-
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
 }

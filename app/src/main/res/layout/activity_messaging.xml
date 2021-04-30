@@ -1,54 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/message_relativeLayout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/message_relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <include layout="@layout/layout_top_line"/>
 
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/message_appBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="45dp"
-        android:background="@drawable/white_grey_border_top_tab">
+            android:id="@+id/message_appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/white_grey_border_top_tab">
 
         <android.support.v7.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/message_username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:textSize="20sp" />
+                    android:id="@+id/message_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:textSize="20sp"/>
 
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
     <ScrollView
-        android:id="@+id/message_scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:layout_below="@+id/message_appBarLayout"
-        android:layout_above="@+id/message_linearLayout1">
+            android:id="@+id/message_scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/message_appBarLayout"
+            android:layout_above="@+id/message_linearLayout1">
 
         <RelativeLayout
-            android:id="@+id/message_relativeLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:id="@+id/message_relativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <LinearLayout
-                android:id="@+id/message_linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="5dp"
-                android:orientation="vertical">
+                    android:id="@+id/message_linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp"
+                    android:orientation="vertical">
 
             </LinearLayout>
 
@@ -57,33 +56,33 @@
     </ScrollView>
 
     <LinearLayout
-        android:id="@+id/message_linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="12dp"
-        android:layout_alignParentBottom="true"
-        >
+            android:id="@+id/message_linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_alignParentBottom="true"
+    >
 
         <EditText
-            android:id="@+id/message_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:hint="@string/write_a_message"
-            android:maxHeight="80dp"
-            android:background="@android:color/transparent"/>
+                android:id="@+id/message_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:hint="@string/write_a_message"
+                android:maxHeight="80dp"
+                android:background="@android:color/transparent"/>
 
         <ImageView
-            android:id="@+id/message_send_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:padding="4dp"
-            android:src="@android:drawable/ic_menu_send" />
+                android:id="@+id/message_send_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:padding="4dp"
+                android:src="@android:drawable/ic_menu_send"/>
 
     </LinearLayout>
 

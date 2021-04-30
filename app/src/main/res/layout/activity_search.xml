@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/search_relativeLayout"
+    <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:gravity="center_vertical">
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+                android:id="@+id/search_relativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical">
 
             <include layout="@layout/layout_top_line"/>
 
@@ -22,32 +21,32 @@
 
         <!--top search appbar-->
         <RelativeLayout
-            android:id="@+id/search_relativeLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/search_relativeLayout"
-            android:gravity="center_vertical">
+                android:id="@+id/search_relativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/search_relativeLayout"
+                android:gravity="center_vertical">
 
             <android.support.design.widget.AppBarLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/white_grey_border_top_tab">
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/white_grey_border_top_tab">
 
                 <android.support.v7.widget.Toolbar
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/profileToolBar">
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/profileToolBar">
 
                     <EditText
-                        android:id="@+id/search_keyword"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:hint="@string/search"
-                        android:textSize="22sp"
-                        android:textColor="@color/black"
-                        android:layout_marginStart="5dp"
-                        android:background="@null"/>
+                            android:id="@+id/search_keyword"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:hint="@string/search"
+                            android:textSize="22sp"
+                            android:textColor="@color/black"
+                            android:layout_marginStart="5dp"
+                            android:background="@null"/>
 
                 </android.support.v7.widget.Toolbar>
 
@@ -56,37 +55,37 @@
         </RelativeLayout>
 
         <FrameLayout
-            android:id="@+id/search_frameLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/search_relativeLayout">
+                android:id="@+id/search_frameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/search_relativeLayout">
 
         </FrameLayout>
 
         <!--tab layout-->
         <RelativeLayout
-            android:id="@+id/search_relativeLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_below="@id/search_relativeLayout1">
+                android:id="@+id/search_relativeLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/search_relativeLayout1">
 
-            <include layout="@layout/layout_top_tabs" />
+            <include layout="@layout/layout_top_tabs"/>
         </RelativeLayout>
 
         <!--body-->
         <RelativeLayout
-            android:id="@+id/search_relativeLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/search_relativeLayout2"
-            android:layout_marginBottom="50dp">
+                android:id="@+id/search_relativeLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/search_relativeLayout2"
+                android:layout_marginBottom="50dp">
 
-            <include layout="@layout/layout_center_viewpager" />
+            <include layout="@layout/layout_center_viewpager"/>
 
         </RelativeLayout>
 
         <!--bottom-->
-        <include layout="@layout/layout_bottom_navigation_view" />
+        <include layout="@layout/layout_bottom_navigation_view"/>
 
     </RelativeLayout>
 

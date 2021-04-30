@@ -18,7 +18,6 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -27,8 +26,6 @@ import com.android.volley.toolbox.Volley;
 import com.kjsce.camplus.Home.Post;
 import com.kjsce.camplus.R;
 import com.kjsce.camplus.Utils.Adapters.CommentAdapter;
-
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -45,10 +42,11 @@ import java.util.Map;
 /* ---------- SIMILAR TO FEED FRAGMENT ---------- */
 
 @TargetApi(Build.VERSION_CODES.M)
-public class CommentsFragment extends Fragment implements View.OnScrollChangeListener, View.OnClickListener  {
+public class CommentsFragment extends Fragment implements View.OnScrollChangeListener, View.OnClickListener {
 
     private static final String TAG = "CommentsFragment";
-
+    private static final String VIEW_COMMENTS_URL = "https://ajjainaakash.000webhostapp.com/view_comments.php";
+    private static final String UPLOAD_COMMENT_URL = "https://ajjainaakash.000webhostapp.com/upload_comment.php";
     private Post post;
     private RecyclerView recyclerView;
     private CommentAdapter commentAdapter;
@@ -60,9 +58,6 @@ public class CommentsFragment extends Fragment implements View.OnScrollChangeLis
     private Toast toast;
     private int requestCount = 1;
     private int countOnScrollChange = 1;
-    private static String VIEW_COMMENTS_URL = "https://ajjainaakash.000webhostapp.com/view_comments.php";
-    private static String UPLOAD_COMMENT_URL = "https://ajjainaakash.000webhostapp.com/upload_comment.php";
-
 
     @Nullable
     @Override
@@ -125,7 +120,7 @@ public class CommentsFragment extends Fragment implements View.OnScrollChangeLis
                         JSONArray comments = new JSONArray(response.substring(response.indexOf("["),
                                 response.lastIndexOf("]") + 1));
 
-                        for(int i = 0; i < comments.length(); i++) {
+                        for (int i = 0; i < comments.length(); i++) {
 
                             JSONObject commentObject = comments.getJSONObject(i);
 
@@ -144,9 +139,7 @@ public class CommentsFragment extends Fragment implements View.OnScrollChangeLis
                     }
 
                     commentAdapter.notifyDataSetChanged();
-                }
-
-                else {
+                } else {
                     if (countOnScrollChange != 2) {
                         toast.setText("No more Comments");
                         toast.show();
@@ -181,10 +174,8 @@ public class CommentsFragment extends Fragment implements View.OnScrollChangeLis
         if (recyclerView.getAdapter().getItemCount() != 0) {
             int lastVisibleItemPosition = ((LinearLayoutManager)
                     recyclerView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
-            if (lastVisibleItemPosition != RecyclerView.NO_POSITION &&
-                    lastVisibleItemPosition == recyclerView.getAdapter().getItemCount() - 1) {
-                return true;
-            }
+            return lastVisibleItemPosition != RecyclerView.NO_POSITION &&
+                    lastVisibleItemPosition == recyclerView.getAdapter().getItemCount() - 1;
         }
         return false;
     }
@@ -219,8 +210,7 @@ public class CommentsFragment extends Fragment implements View.OnScrollChangeLis
                         requestCount = 1;
                         getData();
 
-                    }
-                    else {
+                    } else {
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         builder.setMessage("Comment Upload Failed!")
                                 .setNegativeButton("Retry", null)
@@ -249,19 +239,18 @@ public class CommentsFragment extends Fragment implements View.OnScrollChangeLis
             requestQueue.add(commentsUploadRequest);
             commentTyped.setText("");
             closeKeyboard();
-        }
-        else {
+        } else {
             toast.setText("can't post a blank comment");
             toast.show();
 //            progressBar.setVisibility(View.GONE);
         }
     }
 
-    private void closeKeyboard(){
+    private void closeKeyboard() {
         Log.d(TAG, "closeKeyboard: executing closeKeyboard");
 
         View view = getActivity().getCurrentFocus();
-        if(view != null){
+        if (view != null) {
             InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
@@ -277,10 +266,10 @@ public class CommentsFragment extends Fragment implements View.OnScrollChangeLis
 
         private static final String TAG = "CommentsUploadRequest";
 
-        private Map<String, String> params;
+        private final Map<String, String> params;
 
         public CommentsUploadRequest(int postId, int userId, String commentData, Response.Listener<String> listener,
-                                       Response.ErrorListener errorListener) {
+                                     Response.ErrorListener errorListener) {
             super(Method.POST, UPLOAD_COMMENT_URL, listener, errorListener);
             Log.d(TAG, "CommentsUploadRequest: constructor");
 
@@ -299,7 +288,7 @@ public class CommentsFragment extends Fragment implements View.OnScrollChangeLis
 
         private static final String TAG = "CommentsFragmentRequest";
 
-        private Map<String, String> params;
+        private final Map<String, String> params;
 
         public CommentsFragmentRequest(int postId, int requestCount, Response.Listener<String> listener,
                                        Response.ErrorListener errorListener) {

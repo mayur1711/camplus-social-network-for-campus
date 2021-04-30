@@ -1,9 +1,9 @@
 package com.kjsce.camplus.ForgotPassword;
 
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.view.LayoutInflater;
@@ -11,12 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.kjsce.camplus.Login.LoginActivity;
 import com.kjsce.camplus.R;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -56,16 +54,14 @@ public class ForgotPasswordLastFragment extends Fragment implements View.OnClick
         //
         if (password.length() == 0 || password.length() < 8) {
             forgotPasswordWrapper.setError("Minimum password length: 8");
-        }
-
-        else {
+        } else {
 
             //creating a Response Listener for response from forgot_password_changepwd.php
             com.android.volley.Response.Listener<String> responseListener = new com.android.volley.Response.Listener<String>() {
 
                 @Override
                 //String 'response' - this is the response from forgot_password_changepwd.php
-                public void onResponse(String response)  {
+                public void onResponse(String response) {
 
                     //surrounding around try catch to ensure it does not fail for response that is not
                     // in JSON format and catches an exception
@@ -74,7 +70,7 @@ public class ForgotPasswordLastFragment extends Fragment implements View.OnClick
                         //convert into json Object as the response sent by forgot_password_changepwd.php will be
                         //encoded in JSON string
                         JSONObject jsonResponse = new JSONObject(response.substring(response.indexOf("{"),
-                                response.lastIndexOf("}")+1));
+                                response.lastIndexOf("}") + 1));
 
                         //boolean because it is either True or False
                         boolean success = jsonResponse.getBoolean("success");

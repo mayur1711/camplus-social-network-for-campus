@@ -8,35 +8,11 @@ package com.kjsce.camplus.Utils;
 //class for all the global variables
 public class Global {
     private static Global instance;
-    private static int otpGenerated ;
+    private static int otpGenerated;
     private static String emailForgotPassword, searchKeyword;
 
-    private Global(){
+    private Global() {
 
-    }
-
-    public void setOtpGenerated(int otpGenerated) {
-        Global.otpGenerated = otpGenerated;
-    }
-
-    public int getOtpGenerated() {
-        return Global.otpGenerated;
-    }
-
-    public void setEmailForgotPassword(String emailForgotPassword) {
-        Global.emailForgotPassword = emailForgotPassword;
-    }
-
-    public String getEmailForgotPassword() {
-        return Global.emailForgotPassword;
-    }
-
-    public void setSearchKeyword(String searchKeyword) {
-        Global.searchKeyword = searchKeyword;
-    }
-
-    public String getSearchKeyword() {
-        return Global.searchKeyword;
     }
 
     public static synchronized Global getInstance() {
@@ -44,6 +20,30 @@ public class Global {
             instance = new Global();
         }
         return instance;
+    }
+
+    public int getOtpGenerated() {
+        return Global.otpGenerated;
+    }
+
+    public void setOtpGenerated(int otpGenerated) {
+        Global.otpGenerated = otpGenerated;
+    }
+
+    public String getEmailForgotPassword() {
+        return Global.emailForgotPassword;
+    }
+
+    public void setEmailForgotPassword(String emailForgotPassword) {
+        Global.emailForgotPassword = emailForgotPassword;
+    }
+
+    public String getSearchKeyword() {
+        return Global.searchKeyword;
+    }
+
+    public void setSearchKeyword(String searchKeyword) {
+        Global.searchKeyword = searchKeyword;
     }
 }
 

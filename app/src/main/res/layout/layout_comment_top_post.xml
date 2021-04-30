@@ -1,160 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/comment_linearLayout1"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_margin="8dp"
-    android:padding="5dp"
-    android:background="@drawable/white_grey_border_top_tab">
-
-    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/comment_linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp">
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        android:padding="5dp"
+        android:background="@drawable/white_grey_border_top_tab">
 
-        <TextView
-            android:id="@+id/comment_user_info"
+    <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_marginBottom="6dp">
 
         <TextView
-            android:id="@+id/comment_timestamp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:textSize="12sp"/>
+                android:id="@+id/comment_user_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+        <TextView
+                android:id="@+id/comment_timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textSize="12sp"/>
 
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:gravity="center_vertical">
-
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:paddingTop="2dp"
-            android:src="@drawable/ic_tags"/>
-
-        <TextView
-            android:id="@+id/comment_tags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="5dp"
-            android:textSize="14sp" />
+            android:layout_marginBottom="10dp"
+            android:gravity="center_vertical">
+
+        <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:paddingTop="2dp"
+                android:src="@drawable/ic_tags"/>
+
+        <TextView
+                android:id="@+id/comment_tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="5dp"
+                android:textSize="14sp"/>
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/comment_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:textSize="18sp"
-        android:textColor="@color/black"/>
+            android:id="@+id/comment_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:textSize="18sp"
+            android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/comment_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="6dp"
-        android:textSize="16sp"
-        android:textColor="@color/black"/>
+            android:id="@+id/comment_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
 
     <com.android.volley.toolbox.NetworkImageView
-        android:id="@+id/comment_image"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center_horizontal"/>
+            android:id="@+id/comment_image"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"/>
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
         <RelativeLayout
-            android:layout_width="25dp"
-            android:layout_height="25dp">
+                android:layout_width="25dp"
+                android:layout_height="25dp">
 
             <ImageView
-                android:id="@+id/comment_flag_grey"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/ic_flag_grey"/>
+                    android:id="@+id/comment_flag_grey"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_flag_grey"/>
 
             <ImageView
-                android:id="@+id/comment_flag_red"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/ic_flag_red" />
+                    android:id="@+id/comment_flag_red"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_flag_red"/>
 
         </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_toStartOf="@+id/comment_linearLayout"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_toStartOf="@+id/comment_linearLayout"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
             <RelativeLayout
-                android:layout_width="25dp"
-                android:layout_height="25dp">
+                    android:layout_width="25dp"
+                    android:layout_height="25dp">
 
                 <ImageView
-                    android:id="@+id/comment_like_grey"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/ic_like_grey"/>
+                        android:id="@+id/comment_like_grey"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/ic_like_grey"/>
 
                 <ImageView
-                    android:id="@+id/comment_like_blue"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:src="@drawable/ic_like_blue" />
+                        android:id="@+id/comment_like_blue"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/ic_like_blue"/>
 
             </RelativeLayout>
 
 
             <TextView
-                android:id="@+id/comment_like_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textSize="14sp" />
+                    android:id="@+id/comment_like_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textSize="14sp"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/comment_linearLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_alignParentEnd="true"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/ic_comment" />
-
-            <TextView
-                android:id="@+id/comment_comment_count"
+                android:id="@+id/comment_linearLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textSize="14sp"/>
+                android:layout_marginStart="15dp"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+            <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/ic_comment"/>
+
+            <TextView
+                    android:id="@+id/comment_comment_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:textSize="14sp"/>
 
         </LinearLayout>
 

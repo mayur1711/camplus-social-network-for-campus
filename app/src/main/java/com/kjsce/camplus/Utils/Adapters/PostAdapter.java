@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.kjsce.camplus.CreatePost.CustomVolleyRequest;
@@ -33,15 +32,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
     private static final String TAG = "PostAdapter";
 
-    private Context context;
-    private ImageLoader imageLoader;
-
+    private final Context context;
     //List to store all posts
-    private List<Post> postList;
+    private final List<Post> postList;
+    private ImageLoader imageLoader;
 
     //Constructor of this class
     public PostAdapter(Context context, List<Post> postList) {
-        Log.d(TAG, "PostAdapter: constructor" );
+        Log.d(TAG, "PostAdapter: constructor");
 
         this.context = context;
         this.postList = postList;
@@ -74,10 +72,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
         holder.postLikeCount.setText(String.valueOf(post.getPostLikeCount()));
         holder.postCommentCount.setText(String.valueOf(post.getPostCommentCount()));
 
-        if (Objects.equals(post.getPostImageUrl(), "null")){
+        if (Objects.equals(post.getPostImageUrl(), "null")) {
             holder.postImage.setVisibility(View.GONE);
-        }
-        else {
+        } else {
             holder.postImage.setVisibility(View.VISIBLE);
             imageLoader = CustomVolleyRequest.getInstance(context).getImageLoader();
             imageLoader.get(post.getPostImageUrl(), ImageLoader.getImageListener(holder.postImage,
@@ -101,29 +98,27 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.PostViewHolder
 
                 //navigating to comments fragment
                 if (context instanceof HomeActivity) {
-                    FragmentTransaction fragmentTransaction = ((HomeActivity)context)
+                    FragmentTransaction fragmentTransaction = ((HomeActivity) context)
                             .getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.home_frameLayout,commentsFragment);
+                    fragmentTransaction.replace(R.id.home_frameLayout, commentsFragment);
                     fragmentTransaction.addToBackStack("CommentsFragment");
                     fragmentTransaction.commit();
 
                     //call hideLayout method defined in HomeActivity
                     ((HomeActivity) context).hideLayout();
-                }
-                else if (context instanceof InterestsActivity) {
-                    FragmentTransaction fragmentTransaction = ((InterestsActivity)context)
+                } else if (context instanceof InterestsActivity) {
+                    FragmentTransaction fragmentTransaction = ((InterestsActivity) context)
                             .getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.interests_frameLayout,commentsFragment);
+                    fragmentTransaction.replace(R.id.interests_frameLayout, commentsFragment);
                     fragmentTransaction.addToBackStack("CommentsFragment");
                     fragmentTransaction.commit();
 
                     //call hideLayout method defined in InterestsActivity
                     ((InterestsActivity) context).hideLayout();
-                }
-                else if (context instanceof SearchActivity) {
-                    FragmentTransaction fragmentTransaction = ((SearchActivity)context)
+                } else if (context instanceof SearchActivity) {
+                    FragmentTransaction fragmentTransaction = ((SearchActivity) context)
                             .getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.search_frameLayout,commentsFragment);
+                    fragmentTransaction.replace(R.id.search_frameLayout, commentsFragment);
                     fragmentTransaction.addToBackStack("CommentsFragment");
                     fragmentTransaction.commit();
 

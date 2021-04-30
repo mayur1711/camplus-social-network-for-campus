@@ -2,10 +2,10 @@ package com.kjsce.camplus.ForgotPassword;
 
 
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.view.LayoutInflater;
@@ -13,12 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
-
-
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.kjsce.camplus.R;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -88,7 +85,7 @@ public class ForgotPasswordOtpFragment extends Fragment implements View.OnClickL
                             //convert into json Object as the response sent by forgot_password_otp.php will be
                             //encoded in JSON string
                             JSONObject jsonResponse = new JSONObject(response.substring(response.indexOf("{"),
-                                    response.lastIndexOf("}")+1));
+                                    response.lastIndexOf("}") + 1));
 
                             //boolean because it is either True or False
                             boolean success = jsonResponse.getBoolean("success");

@@ -9,16 +9,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-
+import android.widget.*;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.kjsce.camplus.R;
-import com.kjsce.camplus.Utils.BottomNavigationViewHelper;
 import com.kjsce.camplus.Utils.Adapters.SectionsStatePagerAdapter;
+import com.kjsce.camplus.Utils.BottomNavigationViewHelper;
 
 import java.util.ArrayList;
 
@@ -29,12 +24,11 @@ import java.util.ArrayList;
 public class AccountSettingsActivity extends AppCompatActivity {
 
     private static final String TAG = "AccountSettingsActivity";
-
+    private static final int ACTIVITY_NUM = 3;
     private Context mContext;
     private SectionsStatePagerAdapter pagerAdapter;
     private ViewPager mViewPager;
     private RelativeLayout mRelativeLayout;
-    private static final int ACTIVITY_NUM = 3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

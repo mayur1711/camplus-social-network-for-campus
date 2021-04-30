@@ -14,17 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.kjsce.camplus.R;
-import com.kjsce.camplus.Utils.Global;
 import com.kjsce.camplus.Utils.Adapters.SearchProfileAdapter;
-
+import com.kjsce.camplus.Utils.Global;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,18 +35,17 @@ import java.util.List;
  */
 
 @TargetApi(Build.VERSION_CODES.M)
-public class SearchProfilesFragment extends Fragment{
+public class SearchProfilesFragment extends Fragment {
 
     private static final String TAG = "SearchProfilesFragment";
-
+    private static final String VIEW_SEARCH_PROFILES_URL = "https://ajjainaakash.000webhostapp.com/view_search_profiles.php?search=";
+    private final Global global = Global.getInstance();
     RecyclerView recyclerView;
     SearchProfileAdapter searchProfileAdapter;
     List<User> profileList;
     ProgressBar progressBar;
     RequestQueue requestQueue;
     String search;
-    private Global global = Global.getInstance();
-    private static String VIEW_SEARCH_PROFILES_URL = "https://ajjainaakash.000webhostapp.com/view_search_profiles.php?search=";
 
     @Nullable
     @Override
@@ -100,7 +97,7 @@ public class SearchProfilesFragment extends Fragment{
                         JSONArray profiles = new JSONArray(response.substring(response.indexOf("["),
                                 response.lastIndexOf("]") + 1));
 
-                        for(int i = 0; i < profiles.length(); i++) {
+                        for (int i = 0; i < profiles.length(); i++) {
 
                             JSONObject profilesObject = profiles.getJSONObject(i);
 
@@ -117,9 +114,7 @@ public class SearchProfilesFragment extends Fragment{
                     }
 
                     searchProfileAdapter.notifyDataSetChanged();
-                }
-
-                else {
+                } else {
 
                     Toast.makeText(SearchProfilesFragment.this.getActivity(), "No more Profiles", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);

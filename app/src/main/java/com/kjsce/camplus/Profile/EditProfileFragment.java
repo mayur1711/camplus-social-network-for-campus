@@ -7,12 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
-
+import android.widget.*;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -32,7 +27,7 @@ import java.util.Objects;
 public class EditProfileFragment extends Fragment {
 
     private static final String TAG = "EditProfileFragment";
-
+    private static final String EDIT_PROFILE_URL = "https://ajjainaakash.000webhostapp.com/edit_profile.php";
     EditText editProfileName, editProfileEmail, editProfileUsername, editProfileContactNo;
     AutoCompleteTextView editProfileDepartment, editProfileYear;
     LoginInfo loginInfo;
@@ -41,7 +36,6 @@ public class EditProfileFragment extends Fragment {
     int userId;
     String[] yearArray = new String[]{"FE", "SE", "TE", "BE"};
     String[] departmentArray = new String[]{"CS", "MECH", "EXTC", "IT", "ETRX"};
-    private static final String EDIT_PROFILE_URL = "https://ajjainaakash.000webhostapp.com/edit_profile.php";
 
     @Nullable
     @Override
@@ -52,7 +46,7 @@ public class EditProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_editprofile, container, false);
 
         backArrow = view.findViewById(R.id.editprofile_back);
-        saveBtn =view.findViewById(R.id.editprofile_save);
+        saveBtn = view.findViewById(R.id.editprofile_save);
         editProfileName = view.findViewById(R.id.editprofile_name);
         editProfileEmail = view.findViewById(R.id.editprofile_email);
         editProfileUsername = view.findViewById(R.id.editprofile_username);
@@ -62,7 +56,7 @@ public class EditProfileFragment extends Fragment {
 
         setDataToEditText();
 
-        ArrayAdapter<String> adapterYear= new ArrayAdapter<String>(this.getActivity(),
+        ArrayAdapter<String> adapterYear = new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, yearArray);
         ArrayAdapter<String> adapterDepartment = new ArrayAdapter<String>(this.getActivity(),
                 android.R.layout.simple_spinner_dropdown_item, departmentArray);
@@ -72,12 +66,14 @@ public class EditProfileFragment extends Fragment {
 
         editProfileYear.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {editProfileYear.showDropDown();
+            public void onClick(View v) {
+                editProfileYear.showDropDown();
             }
         });
         editProfileDepartment.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { editProfileDepartment.showDropDown();
+            public void onClick(View v) {
+                editProfileDepartment.showDropDown();
             }
         });
 
@@ -90,8 +86,7 @@ public class EditProfileFragment extends Fragment {
 
                 if (profileDetailsUnchanged()) {
                     Toast.makeText(getActivity(), "No changes made!", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     setDataToDatabase();
                 }
             }
@@ -108,7 +103,7 @@ public class EditProfileFragment extends Fragment {
         return view;
     }
 
-    public void setDataToEditText(){
+    public void setDataToEditText() {
         Log.d(TAG, "setData: executing setData");
 
         loginInfo = LoginInfo.getInstance();
@@ -122,7 +117,7 @@ public class EditProfileFragment extends Fragment {
         editProfileContactNo.setText(loginInfo.getContactNo());
     }
 
-    public void getDataFromEditText(){
+    public void getDataFromEditText() {
         Log.d(TAG, "getData: executing getData");
 
         name = editProfileName.getText().toString().trim();
@@ -135,7 +130,7 @@ public class EditProfileFragment extends Fragment {
         Log.d(TAG, "profileDetailsUnchanged: executing profileDetailsChanged");
 
         return Objects.equals(name, loginInfo.getName()) && Objects.equals(department, loginInfo.getDepartment()) &&
-                Objects.equals(year, loginInfo.getYear())  && Objects.equals(contactNo, loginInfo.getContactNo());
+                Objects.equals(year, loginInfo.getYear()) && Objects.equals(contactNo, loginInfo.getContactNo());
     }
 
     public void setDataToDatabase() {
@@ -150,8 +145,7 @@ public class EditProfileFragment extends Fragment {
                     loginInfo.setYear(year);
                     loginInfo.setDepartment(department);
                     Toast.makeText(getActivity(), "Success!", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Toast.makeText(getActivity(), "Something went wrong!", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -173,7 +167,7 @@ public class EditProfileFragment extends Fragment {
 
         private static final String TAG = "EditProfileRequest";
 
-        private Map<String, String> params;
+        private final Map<String, String> params;
 
         public EditProfileRequest(int userId, Response.Listener<String> listener, Response.ErrorListener errorListener) {
             super(Method.POST, EDIT_PROFILE_URL, listener, errorListener);

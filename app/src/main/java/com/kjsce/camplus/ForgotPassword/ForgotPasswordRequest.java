@@ -14,10 +14,10 @@ import java.util.Map;
 public class ForgotPasswordRequest extends StringRequest {
 
     //url of forgot_password_email.php on the server
-    private static String FORGOT_PASSWORD_REQUEST_URL = "https://ajjainaakash.000webhostapp.com/forgot_password_email.php";
+    private static final String FORGOT_PASSWORD_REQUEST_URL = "https://ajjainaakash.000webhostapp.com/forgot_password_email.php";
 
     //
-    private Map<String,String> params;
+    private final Map<String, String> params;
 
     //constructor of the class
     public ForgotPasswordRequest(String email, Response.Listener<String> listener) {

@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    
-    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <!--top line-->
         <include layout="@layout/layout_top_line"/>
 
         <!--toolbar-->
         <RelativeLayout
-            android:layout_marginTop="45dp"
-            android:id="@+id/editprofile_relativeLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                android:layout_marginTop="45dp"
+                android:id="@+id/editprofile_relativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
             <android.support.design.widget.AppBarLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/white_grey_border_top_tab">
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/white_grey_border_top_tab">
 
                 <android.support.v7.widget.Toolbar
-                    android:id="@+id/editprofile_Toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <RelativeLayout
+                        android:id="@+id/editprofile_Toolbar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                    <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
                         <ImageView
-                            android:id="@+id/editprofile_back"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentStart="true"
-                            android:layout_marginEnd="15dp"
-                            android:src="@drawable/ic_back_arrow"/>
+                                android:id="@+id/editprofile_back"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginEnd="15dp"
+                                android:src="@drawable/ic_back_arrow"/>
 
                         <TextView
-                            android:id="@+id/editprofile_text"
-                            android:layout_toEndOf="@+id/editprofile_back"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="@string/edit_profile"
-                            android:textSize="20sp"
-                            android:textColor="@color/black"/>
+                                android:id="@+id/editprofile_text"
+                                android:layout_toEndOf="@+id/editprofile_back"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="@string/edit_profile"
+                                android:textSize="20sp"
+                                android:textColor="@color/black"/>
 
                         <ImageView
-                            android:id="@+id/editprofile_save"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginEnd="15dp"
-                            android:src="@drawable/ic_checkmark"/>
+                                android:id="@+id/editprofile_save"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="15dp"
+                                android:src="@drawable/ic_checkmark"/>
 
                     </RelativeLayout>
 
@@ -71,165 +71,165 @@
 
         <!--body-->
         <RelativeLayout
-            android:id="@+id/editprofile_relativeLayout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:padding="15dp"
-            android:layout_below="@id/editprofile_relativeLayout1">
+                android:id="@+id/editprofile_relativeLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="15dp"
+                android:layout_below="@id/editprofile_relativeLayout1">
 
             <RelativeLayout
-                android:id="@+id/editprofile_relativeLayout3"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/white_grey_border_top_tab">
+                    android:id="@+id/editprofile_relativeLayout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/white_grey_border_top_tab">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_name"/>
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_name"/>
 
                 <EditText
-                    android:id="@+id/editprofile_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_centerVertical="true"
-                    android:background="@null"
-                    android:hint="@string/name"
-                    android:inputType="textNoSuggestions"/>
+                        android:id="@+id/editprofile_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:hint="@string/name"
+                        android:inputType="textNoSuggestions"/>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/editprofile_relativeLayout4"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@id/editprofile_relativeLayout3"
-                android:background="@drawable/white_grey_border_top_tab">
+                    android:id="@+id/editprofile_relativeLayout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/editprofile_relativeLayout3"
+                    android:background="@drawable/white_grey_border_top_tab">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_email"/>
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_email"/>
 
                 <EditText
-                    android:id="@+id/editprofile_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_centerVertical="true"
-                    android:focusable="false"
-                    android:longClickable="false"
-                    android:background="@null"
-                    android:inputType="textEmailAddress"/>
+                        android:id="@+id/editprofile_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_centerVertical="true"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:background="@null"
+                        android:inputType="textEmailAddress"/>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/editprofile_relativeLayout5"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@id/editprofile_relativeLayout4"
-                android:background="@drawable/white_grey_border_top_tab">
+                    android:id="@+id/editprofile_relativeLayout5"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/editprofile_relativeLayout4"
+                    android:background="@drawable/white_grey_border_top_tab">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_username"/>
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_username"/>
 
                 <EditText
-                    android:id="@+id/editprofile_username"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_centerVertical="true"
-                    android:focusable="false"
-                    android:longClickable="false"
-                    android:background="@null"
-                    android:inputType="textNoSuggestions"/>
+                        android:id="@+id/editprofile_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_centerVertical="true"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:background="@null"
+                        android:inputType="textNoSuggestions"/>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/editprofile_relativeLayout6"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@id/editprofile_relativeLayout5"
-                android:background="@drawable/white_grey_border_top_tab">
+                    android:id="@+id/editprofile_relativeLayout6"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/editprofile_relativeLayout5"
+                    android:background="@drawable/white_grey_border_top_tab">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_department"/>
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_department"/>
 
                 <AutoCompleteTextView
-                    android:id="@+id/editprofile_department"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_centerVertical="true"
-                    android:focusable="false"
-                    android:longClickable="false"
-                    android:background="@null"
-                    android:hint="@string/department"
-                    android:inputType="textNoSuggestions"/>
+                        android:id="@+id/editprofile_department"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_centerVertical="true"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:background="@null"
+                        android:hint="@string/department"
+                        android:inputType="textNoSuggestions"/>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/editprofile_relativeLayout7"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@id/editprofile_relativeLayout6"
-                android:background="@drawable/white_grey_border_top_tab">
+                    android:id="@+id/editprofile_relativeLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/editprofile_relativeLayout6"
+                    android:background="@drawable/white_grey_border_top_tab">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_year"/>
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_year"/>
 
                 <AutoCompleteTextView
-                    android:id="@+id/editprofile_year"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_centerVertical="true"
-                    android:focusable="false"
-                    android:longClickable="false"
-                    android:background="@null"
-                    android:hint="@string/year"
-                    android:inputType="textNoSuggestions"/>
+                        android:id="@+id/editprofile_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_centerVertical="true"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:background="@null"
+                        android:hint="@string/year"
+                        android:inputType="textNoSuggestions"/>
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/editprofile_relativeLayout8"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@id/editprofile_relativeLayout7"
-                android:background="@drawable/white_grey_border_top_tab">
+                    android:id="@+id/editprofile_relativeLayout8"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/editprofile_relativeLayout7"
+                    android:background="@drawable/white_grey_border_top_tab">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/ic_phone"/>
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_phone"/>
 
                 <EditText
-                    android:id="@+id/editprofile_contact_no"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="50dp"
-                    android:layout_centerVertical="true"
-                    android:background="@null"
-                    android:hint="@string/contact_no"
-                    android:inputType="textNoSuggestions"/>
+                        android:id="@+id/editprofile_contact_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="50dp"
+                        android:layout_centerVertical="true"
+                        android:background="@null"
+                        android:hint="@string/contact_no"
+                        android:inputType="textNoSuggestions"/>
 
             </RelativeLayout>
 

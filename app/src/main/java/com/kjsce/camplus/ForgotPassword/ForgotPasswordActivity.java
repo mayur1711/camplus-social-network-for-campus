@@ -3,19 +3,17 @@ package com.kjsce.camplus.ForgotPassword;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.kjsce.camplus.Utils.Global;
 import com.kjsce.camplus.R;
-
+import com.kjsce.camplus.Utils.Global;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,7 +21,7 @@ import org.json.JSONObject;
  * Created by Mayur on 16-12-2017.
  */
 
-public class ForgotPasswordActivity extends AppCompatActivity implements View.OnClickListener{
+public class ForgotPasswordActivity extends AppCompatActivity implements View.OnClickListener {
 
     //declaring variables
     TextInputLayout forgotEmailWrapper;
@@ -61,10 +59,9 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
         forgotEmailWrapper.setErrorEnabled(false);
 
         //If Email Id is invalid display error on button press
-        if (!emailForgotPassword.matches("[a-zA-Z0-9._-]+@somaiya+[.]+edu") || emailForgotPassword.length() == 0){
+        if (!emailForgotPassword.matches("[a-zA-Z0-9._-]+@somaiya+[.]+edu") || emailForgotPassword.length() == 0) {
             forgotEmailWrapper.setError("Enter Somaiya Email Id");
-        }
-        else {
+        } else {
 
             //creating a Response Listener for response from forgot_password_email.php
             Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -80,7 +77,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
                         //convert into json Object as the response sent by forgot_password.php will be
                         //encoded in JSON string
                         JSONObject jsonResponse = new JSONObject(response.substring(response.indexOf("{"),
-                                response.lastIndexOf("}")+1));
+                                response.lastIndexOf("}") + 1));
 
                         //boolean because it is either True or False
                         boolean success = jsonResponse.getBoolean("success");
@@ -151,8 +148,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
 
         if (count == 0) {
             super.onBackPressed();
-        }
-        else {
+        } else {
             forgotEmail.setEnabled(true);
             sendOtpBtn.setVisibility(View.VISIBLE);
             getFragmentManager().popBackStack();

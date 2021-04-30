@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.kjsce.camplus.CreatePost.Tag;
 import com.kjsce.camplus.R;
 
@@ -23,10 +22,10 @@ import java.util.List;
 public class TagAdapter extends BaseAdapter {
 
     private static final String TAG = "TagAdapter";
-    private List<Integer> tagIds = new ArrayList<Integer>();
-    private List<String> tagNames = new ArrayList<String>();
-    private List<Tag> tagList;
-    private Context context;
+    private final List<Integer> tagIds = new ArrayList<Integer>();
+    private final List<String> tagNames = new ArrayList<String>();
+    private final List<Tag> tagList;
+    private final Context context;
 
     public TagAdapter(Context context, List<Tag> tagList) {
         this.tagList = tagList;
@@ -71,13 +70,12 @@ public class TagAdapter extends BaseAdapter {
             public void onClick(View v) {
                 Log.d(TAG, "onClick: clicking on tag button");
                 int resId = (Integer) finalConvertView.getTag();
-                if (resId == R.drawable.tag_down){
+                if (resId == R.drawable.tag_down) {
                     tagTextView.setBackgroundResource(R.drawable.tag_up);
                     tagTextView.setTag(R.drawable.tag_up);
                     tagIds.remove(tagIds.indexOf(tag.getTagId()));
                     tagNames.remove(tagNames.indexOf(tag.getTagName()));
-                }
-                else {
+                } else {
                     tagTextView.setBackgroundResource(R.drawable.tag_down);
                     tagTextView.setTag(R.drawable.tag_down);
                     tagIds.add(tag.getTagId());
@@ -87,8 +85,8 @@ public class TagAdapter extends BaseAdapter {
         });
 
         Intent intent = new Intent("sending tagId and tagName Arrays");
-        intent.putIntegerArrayListExtra("tagId",(ArrayList<Integer>) tagIds);
-        intent.putStringArrayListExtra("tagName",(ArrayList<String>) tagNames);
+        intent.putIntegerArrayListExtra("tagId", (ArrayList<Integer>) tagIds);
+        intent.putStringArrayListExtra("tagName", (ArrayList<String>) tagNames);
         LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
 
         return convertView;

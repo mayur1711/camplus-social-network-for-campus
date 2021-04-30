@@ -11,25 +11,13 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ScrollView;
-import android.widget.Toast;
-
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
+import android.widget.*;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.kjsce.camplus.R;
@@ -41,11 +29,12 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class CreatePostActivity extends AppCompatActivity {
 
     private static final String TAG = "CreatePostActivity";
+    private static final String UPLOAD_POST_URL = "https://ajjainaakash.000webhostapp.com/upload_post.php";
+    private final int PICK_IMAGE_REQUEST = 1;
     private TextInputEditText postTitle, postContent, postTags;
     private Button postBtn;
     private ImageButton addImageBtn, addTagsBtn;
@@ -54,10 +43,8 @@ public class CreatePostActivity extends AppCompatActivity {
     private String title, content, image, tagNameString, tagIdString;
     private FrameLayout frameLayout;
     private ScrollView scrollView;
-    private int PICK_IMAGE_REQUEST = 1;
     private List<Integer> tagIds = new ArrayList<Integer>();
     private List<String> tagNames = new ArrayList<String>();
-    private static String UPLOAD_POST_URL = "https://ajjainaakash.000webhostapp.com/upload_post.php";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -262,7 +249,7 @@ public class CreatePostActivity extends AppCompatActivity {
                 tagNameString += tagNames.get(i) + ", ";
                 tagIdString += tagIds.get(i) + ",";
             }
-            postTags.setText(tagNameString.substring(0, tagNameString.length()-2));
+            postTags.setText(tagNameString.substring(0, tagNameString.length() - 2));
         }
     }
 

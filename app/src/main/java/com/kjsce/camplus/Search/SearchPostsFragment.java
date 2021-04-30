@@ -14,18 +14,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.kjsce.camplus.Home.Post;
 import com.kjsce.camplus.R;
-import com.kjsce.camplus.Utils.Global;
 import com.kjsce.camplus.Utils.Adapters.PostAdapter;
-
+import com.kjsce.camplus.Utils.Global;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,18 +36,17 @@ import java.util.List;
  */
 
 @TargetApi(Build.VERSION_CODES.M)
-public class SearchPostsFragment extends Fragment{
+public class SearchPostsFragment extends Fragment {
 
     private static final String TAG = "SearchPostsFragment";
-
+    private static final String VIEW_SEARCH_POSTS_URL = "https://ajjainaakash.000webhostapp.com/view_search_posts.php?search=";
+    private final Global global = Global.getInstance();
     RecyclerView recyclerView;
     PostAdapter postAdapter;
     List<Post> postList;
     ProgressBar progressBar;
     RequestQueue requestQueue;
     String search;
-    private Global global = Global.getInstance();
-    private static String VIEW_SEARCH_POSTS_URL = "https://ajjainaakash.000webhostapp.com/view_search_posts.php?search=";
 
     @Nullable
     @Override
@@ -68,7 +65,7 @@ public class SearchPostsFragment extends Fragment{
         recyclerView.setLayoutManager(linearLayoutManager);
 
         progressBar = view.findViewById(R.id.search_posts_progressBar);
-        
+
         requestQueue = Volley.newRequestQueue(this.getActivity());
         requestQueue.add(getPosts());
         postAdapter = new PostAdapter(getActivity(), postList);
@@ -99,7 +96,7 @@ public class SearchPostsFragment extends Fragment{
                         JSONArray posts = new JSONArray(response.substring(response.indexOf("["),
                                 response.lastIndexOf("]") + 1));
 
-                        for(int i = 0; i < posts.length(); i++) {
+                        for (int i = 0; i < posts.length(); i++) {
 
                             JSONObject postObject = posts.getJSONObject(i);
 
@@ -126,9 +123,7 @@ public class SearchPostsFragment extends Fragment{
                     }
 
                     postAdapter.notifyDataSetChanged();
-                }
-
-                else {
+                } else {
 
                     Toast.makeText(SearchPostsFragment.this.getActivity(), "No more Posts", Toast.LENGTH_SHORT).show();
                     progressBar.setVisibility(View.GONE);

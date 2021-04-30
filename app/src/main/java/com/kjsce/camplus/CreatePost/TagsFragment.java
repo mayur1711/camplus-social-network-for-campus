@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -25,7 +24,6 @@ import com.android.volley.toolbox.Volley;
 import com.kjsce.camplus.Interests.InterestsActivity;
 import com.kjsce.camplus.R;
 import com.kjsce.camplus.Utils.Adapters.TagAdapter;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -40,6 +38,7 @@ import java.util.List;
 public class TagsFragment extends Fragment {
 
     private static final String TAG = "TagsFragment";
+    private static final String VIEW_TAGS_URL = "https://ajjainaakash.000webhostapp.com/view_tags.php";
     private ImageView saveBtn;
     private GridView gridView;
     private List<Tag> tagList;
@@ -47,8 +46,6 @@ public class TagsFragment extends Fragment {
     private RequestQueue requestQueue;
     private List<Integer> tagIds = new ArrayList<Integer>();
     private List<String> tagNames = new ArrayList<String>();
-
-    private static String VIEW_TAGS_URL = "https://ajjainaakash.000webhostapp.com/view_tags.php";
 
     @Nullable
     @Override
@@ -85,19 +82,16 @@ public class TagsFragment extends Fragment {
                 Log.d(TAG, "onClick: save tag button click");
                 if (tagIds.size() == 0) {
                     Toast.makeText(getActivity(), "Select tags!", Toast.LENGTH_SHORT).show();
-                }
-                else if (tagIds.size() > 3) {
+                } else if (tagIds.size() > 3) {
                     Toast.makeText(getActivity(), "Not more than 3 tags are allowed", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Intent tagIntent = new Intent(getActivity().getBaseContext(), InterestsActivity.class);
                     tagIntent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                     getActivity().startActivity(tagIntent);
 
                     if (getActivity() instanceof CreatePostActivity) {
                         ((CreatePostActivity) getActivity()).showLayout();
-                    }
-                    else if (getActivity() instanceof InterestsActivity) {
+                    } else if (getActivity() instanceof InterestsActivity) {
                         ((InterestsActivity) getActivity()).showLayout();
                     }
                 }
@@ -115,7 +109,7 @@ public class TagsFragment extends Fragment {
                 try {
                     JSONArray tags = new JSONArray(response.substring(response.indexOf("["),
                             response.lastIndexOf("]") + 1));
-                    for(int i = 0; i < tags.length(); i++) {
+                    for (int i = 0; i < tags.length(); i++) {
 
                         JSONObject tagObject = tags.getJSONObject(i);
                         int tagId = tagObject.getInt("interest_id");

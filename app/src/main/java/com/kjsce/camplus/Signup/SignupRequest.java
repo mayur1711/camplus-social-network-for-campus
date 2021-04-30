@@ -12,17 +12,17 @@ import java.util.Map;
  */
 
 //This class allows us to make a request to the signup.php on the server and get a response as a string
-public class SignupRequest extends StringRequest{
+public class SignupRequest extends StringRequest {
 
     //url of signup.php on the server
-    private static String SIGNUP_REQUEST_URL = "https://ajjainaakash.000webhostapp.com/signup.php";
+    private static final String SIGNUP_REQUEST_URL = "https://ajjainaakash.000webhostapp.com/signup.php";
 
     //
-    private Map<String, String> params;
+    private final Map<String, String> params;
 
     //constructor of the class
     public SignupRequest(String name, String email, String username, String contact_no, String year,
-                         String department, String password, Response.Listener<String> listener){
+                         String department, String password, Response.Listener<String> listener) {
 
         //pass data to volley so that it allows volley to execute our request for us
         //Method.POST - send some data to signup.php and it responds back with some data

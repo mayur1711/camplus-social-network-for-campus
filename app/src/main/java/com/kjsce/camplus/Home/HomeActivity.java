@@ -2,10 +2,10 @@ package com.kjsce.camplus.Home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,29 +13,27 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.kjsce.camplus.CreatePost.CreatePostActivity;
 import com.kjsce.camplus.R;
-import com.kjsce.camplus.Utils.BottomNavigationViewHelper;
 import com.kjsce.camplus.Utils.Adapters.SectionsPagerAdapter;
+import com.kjsce.camplus.Utils.BottomNavigationViewHelper;
 
 /**
  * Created by Mayur on 07-02-2018.
  */
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "HomeActivity";
-
+    private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
+    private static final int ACTIVITY_NUM = 0;
+    private final Context mContext = HomeActivity.this;
     private RelativeLayout relativeLayout2, relativeLayout3;
     private BottomNavigationViewEx bottomNavigationViewEx;
     private FrameLayout frameLayout;
     private ImageButton createPostBtn;
-    private Context mContext = HomeActivity.this;
-    private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
-    private static final int ACTIVITY_NUM = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +126,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         createPostBtn.setVisibility(View.VISIBLE);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
-        if(frameLayout.getVisibility() == View.VISIBLE){
+        if (frameLayout.getVisibility() == View.VISIBLE) {
             showLayout();
         }
         /*else if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis())

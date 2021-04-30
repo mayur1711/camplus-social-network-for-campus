@@ -1,15 +1,14 @@
 package com.kjsce.camplus.Login;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -18,7 +17,6 @@ import com.kjsce.camplus.Home.HomeActivity;
 import com.kjsce.camplus.R;
 import com.kjsce.camplus.Signup.SignupActivity;
 import com.kjsce.camplus.Utils.LoginInfo;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,7 +24,7 @@ import org.json.JSONObject;
  * Created by Mayur on 15-12-2017.
  */
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "LoginActivity";
 
@@ -43,7 +41,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: executing onCreate");
-        
+
         //tells java file which xml file its working with
         setContentView(R.layout.activity_login);
 
@@ -64,7 +62,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onResume(){
+    public void onResume() {
         super.onResume();
 
         //clear all text fields and errors when activity is resumed
@@ -77,8 +75,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         Log.d(TAG, "onClick: on click");
-        switch (v.getId())
-        {
+        switch (v.getId()) {
             //on 'No Account Yet' button click
             case R.id.no_account_yet_btn:
 
@@ -99,18 +96,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String password = loginPassword.getText().toString().trim();
 
                 //if username not entered display error
-                if(username.length() == 0) {
+                if (username.length() == 0) {
                     Log.d(TAG, "onClick: if");
                     loginUsernameWrapper.setError("Enter username");
                 }
 
                 //if password not entered display error
-                else if(password.length() == 0) {
+                else if (password.length() == 0) {
                     Log.d(TAG, "onClick: else if");
                     loginPasswordWrapper.setError("Enter password");
-                }
-
-                else {
+                } else {
                     Log.d(TAG, "onClick: else");
                     //creating a Response Listener for response from login.php
                     Response.Listener<String> responseListener = new Response.Listener<String>() {
@@ -127,7 +122,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 //convert into json Object as the response sent by login.php will be encoded
                                 //in JSON string
                                 JSONObject jsonResponse = new JSONObject(response.substring(response.indexOf("{"),
-                                        response.lastIndexOf("}")+1));
+                                        response.lastIndexOf("}") + 1));
 
                                 //boolean because it is either True or False
                                 boolean success = jsonResponse.getBoolean("success");
